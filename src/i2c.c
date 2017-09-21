@@ -73,7 +73,7 @@ uint8_t i2c_read_byte(uint8_t ack, uint8_t stop)
 
 void __attribute__ ((noinline)) delay(void)
 {
-    _delay_us(500);
+    _delay_us(5);
 }
 
 void set_bit(uint8_t pin)
