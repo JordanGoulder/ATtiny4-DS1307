@@ -119,7 +119,6 @@ void write_bit(uint8_t b)
     set_bit(SCL);
     delay();
     clr_bit(SCL);
-    delay();
 }
 
 uint8_t read_bit(void)
@@ -134,8 +133,6 @@ uint8_t read_bit(void)
     b = (PORTB >> SDA) & 0x01;
 
     clr_bit(SCL);
-
-    delay();
 
     return b;
 }
