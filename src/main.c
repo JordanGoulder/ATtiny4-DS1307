@@ -26,8 +26,9 @@ int main(void)
         i2c_start_condition();
         i2c_write_byte(0xD0);
         i2c_write_byte(0x00);
+        i2c_start_condition();
         i2c_write_byte(0xD1);
-        i2c_read_byte(0);
+        i2c_read_byte(1);
         i2c_stop_condition();
 
         _delay_ms(100);
