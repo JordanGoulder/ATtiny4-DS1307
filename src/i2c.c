@@ -69,11 +69,7 @@ uint8_t i2c_read_byte(uint8_t ack)
         }
     }
 
-    if (ack) {
-        write_bit(0);
-    } else {
-        write_bit(1);
-    }
+    write_bit(ack);
 
     return data;
 }
