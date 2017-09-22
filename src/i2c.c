@@ -22,11 +22,11 @@ static uint8_t  read_bit(void);
 
 void i2c_init(void)
 {
-    DDRB &= ~(_BV(SCL) | _BV(SDA));
+    DDRB &= ~_BV(SCL);
+    DDRB &= ~_BV(SDA);
 
-    PORTB &= ~(_BV(SCL) | _BV(SDA));
-
-    delay();
+    PORTB &= ~_BV(SCL);
+    PORTB &= ~_BV(SDA);
 }
 
 uint8_t i2c_write_byte(uint8_t data, uint8_t start, uint8_t stop)
