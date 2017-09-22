@@ -50,20 +50,12 @@ void i2c_stop_condition(void)
 
 uint8_t i2c_write_byte(uint8_t data)
 {
-    uint8_t ack = 0;
-
     for (uint8_t i = 0; i < 8; i++) {
         write_bit(data & 0x80);
         data <<= 1;
     }
 
-    ack = read_bit();
-
-    if (ack == 0) {
-        return TRUE;
-    } else {
-        return FALSE;
-    }
+    return (read_bit());
 }
 
 uint8_t i2c_read_byte(uint8_t ack)
