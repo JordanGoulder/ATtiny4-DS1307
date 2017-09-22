@@ -57,7 +57,9 @@ uint8_t i2c_read_byte(uint8_t ack, uint8_t stop)
 
     for (uint8_t i = 0; i < 8; i++) {
         data <<= 1;
-        data |= read_bit();
+        if (read_bit()) {
+            data |= 0x01;
+        }
     }
 
     if (ack) {
@@ -130,7 +132,7 @@ uint8_t read_bit(void)
     set_bit(SCL);
     delay();
 
-    b = (PORTB >> SDA) & 0x01;
+    b = PORTB & _BV(SDA);
 
     clr_bit(SCL);
 
