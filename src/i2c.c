@@ -27,7 +27,7 @@ void i2c_init(void)
     PORTB &= ~_BV(SDA);
 }
 
-void i2c_start_condition(void)
+void i2c_start(void)
 {
     set_bit(SCL);
     set_bit(SDA);
@@ -38,7 +38,7 @@ void i2c_start_condition(void)
     delay();
 }
 
-void i2c_stop_condition(void)
+void i2c_stop(void)
 {
     clr_bit(SDA);
     delay();
@@ -48,7 +48,7 @@ void i2c_stop_condition(void)
     delay();
 }
 
-uint8_t i2c_write_byte(uint8_t data)
+uint8_t i2c_write(uint8_t data)
 {
     for (uint8_t i = 0; i < 8; i++) {
         write_bit(data & 0x80);
@@ -58,7 +58,7 @@ uint8_t i2c_write_byte(uint8_t data)
     return (read_bit());
 }
 
-uint8_t i2c_read_byte(uint8_t ack)
+uint8_t i2c_read(uint8_t ack)
 {
     uint8_t data = 0;
 
