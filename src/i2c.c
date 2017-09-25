@@ -4,14 +4,6 @@
 #define SCL (PORTB1)
 #define SDA (PORTB2)
 
-#ifndef TRUE
-#define TRUE (1)
-#endif
-
-#ifndef FALSE
-#define FALSE (0)
-#endif
-
 static void     delay(void);
 static void     set_bit(uint8_t pin);
 static void     clr_bit(uint8_t pin);
