@@ -4,7 +4,7 @@ MCU      = attiny4
 FREQ     = 1000000
 
 C_SRCS   = main.c i2c.c
-AS_SRCS  =
+AS_SRCS  = bcd.S
 
 C_OBJS   = $(C_SRCS:.c=.o) 
 AS_OBJS  = $(AS_SRCS:.S=.o)
