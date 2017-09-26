@@ -104,7 +104,7 @@ uint8_t read_bit(void)
     set_bit(SCL);
     delay();
 
-    b = PORTB & _BV(SDA);
+    b = PINB & _BV(SDA);
 
     clr_bit(SCL);
 
