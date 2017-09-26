@@ -8,7 +8,6 @@
 int main(void)
 {
     DDRB |= _BV(DDB0);
-    PORTB |= _BV(DDB0);
 
     i2c_init();
 
@@ -33,15 +32,15 @@ int main(void)
         i2c_write(0x00);
         i2c_start();
         i2c_write(0xD1);
-        uint8_t bcd_secs = 0x3F & i2c_read(1);
+        uint8_t bcd_secs = 0x7F & i2c_read(1);
         i2c_stop();
 
         uint8_t secs = bcd_to_bin(bcd_secs);
 
-        if (secs == 0) {
-            PORTB |= _BV(DDB0);
+        if (secs == 59) {
+            PORTB |= _BV(PORTB0);
         } else {
-            PORTB &= ~_BV(DDB0);
+            PORTB &= ~_BV(PORTB0);
         }
 
         _delay_ms(100);
