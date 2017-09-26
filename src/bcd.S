@@ -7,7 +7,7 @@ bcd_to_bin:
         andi    r24, 0x0F
 
 1:      subi    r16, 10
-        brhs    2f
+        brcs    2f
         subi    r24, -10
         rjmp    1b
 
